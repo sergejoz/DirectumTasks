@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MeetingApp.Model;
 
-namespace MeetingApp.Storage
+namespace MeetingApp
 {
     /// <summary>
     /// вместо бд

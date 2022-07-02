@@ -1,15 +1,61 @@
-﻿using MeetingApp.Menu;
+﻿using MeetingApp.Controllers;
+using MeetingApp.Menu;
 using MeetingApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MeetingApp.MenuCommands
 {
     public class EditMeetingController
     {
-        public void Execute(List<Meeting> meetings)
+        private static List<string> fields = new List<string>() {
+            "1. Название",
+            "2. Дата начала",
+            "3. Дата окончания",
+            "4. Дата напоминания"
+        };
+
+        public static void Execute()
         {
-            throw new NotImplementedException();
+            var meetings = Storage.Meetings;
+            PrintController.Execute("Введите Id встречи, которую хотите изменить");
+            var meetId = ReadController.ReadInt();
+            var meeting = meetings.FirstOrDefault(x => x.Id == meetId);
+            if (meetings != null)
+                SelectField(meeting);
+            else PrintController.Execute("Встречи с таким ID не существует");
         }
+
+        private static void SelectField(Meeting meeting)
+        {
+            fields.ForEach(x=> PrintController.Execute(x));
+            PrintController.Execute("Выберите номер редактируемого поля");
+            var fieldId = ReadController.ReadInt();
+
+            switch (fieldId)
+            {
+                case 1:
+                    meeting.SetName();
+                    break;
+                case 2:
+                    meeting.SetStartDate();
+                    break;
+                case 3:
+                    meeting.SetEndDate();
+                    break;
+                case 4:
+                    meeting.SetAlertDate();
+                    break;
+                default: 
+                    PrintController.Execute("Поля с таким номером не существует!");
+                    break;
+            }
+
+            PrintController.Execute("Поле изменено!");
+
+        }
+
+
     }
 }

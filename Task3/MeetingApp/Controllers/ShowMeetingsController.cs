@@ -11,7 +11,7 @@ namespace MeetingApp.MenuCommands
     {
         internal static void ExecuteShowAll()
         {
-            var meetings = Storage.Storage.Meetings;
+            var meetings = Storage.Meetings;
             if (meetings.Any())
                 PrintMeetings(meetings);
             else
@@ -22,7 +22,7 @@ namespace MeetingApp.MenuCommands
         {
             PrintController.Execute("Введите число в формате dd.mm.yyyy");
             var date = ReadController.ReadShortDate();
-            var meetings = Storage.Storage.Meetings.Where(x => x.StartDate.Date == date).ToList();
+            var meetings = Storage.Meetings.Where(x => x.StartDate.Date == date).ToList();
 
             if (meetings.Any())
                 PrintMeetings(meetings);

@@ -19,17 +19,22 @@ namespace MeetingApp.Menu
 
         public void Execute()
         {
-
             switch (Oid)
             {
                 case 1:
-                    CreateNewMeetingController.Execute();
-                    break;
-                case 2:
                     ShowMeetingsController.ExecuteShowAll();
                     break;
-                case 3:
+                case 2:
                     ShowMeetingsController.ExecuteShowSpecifiedDay();
+                    break;
+                case 3:
+                    CreateNewMeetingController.Execute();
+                    break;
+                case 4:
+                    EditMeetingController.Execute();
+                    break;
+                case 5:
+                    DeleteMeetingController.Execute();
                     break;
                 default:
                     PrintController.Execute("Такой команды не существует!");

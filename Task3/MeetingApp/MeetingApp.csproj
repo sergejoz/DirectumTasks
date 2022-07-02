@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CreateNewMeetingController.cs" />
+    <Compile Include="Controllers\DeleteMeetingController.cs" />
     <Compile Include="Controllers\EditMeetingController.cs" />
     <Compile Include="Controllers\PrintController.cs" />
     <Compile Include="Controllers\ReadController.cs" />
     <Compile Include="Controllers\SaveToFileController.cs" />
+    <Compile Include="Entities\AutoIncrment.cs" />
     <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Controllers\ShowMeetingsController.cs" />
     <Compile Include="Model\Meeting.cs" />

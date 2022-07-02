@@ -37,7 +37,7 @@ namespace MeetingApp.Services
         {
             var dateNow = DateTime.Now;
             var dateNoSeconds = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day, dateNow.Hour, dateNow.Minute, 0);
-            var meetings = Storage.Storage.Meetings.Where(x => x.AlertDate == dateNoSeconds).ToList();
+            var meetings = Storage.Meetings.Where(x => x.AlertDate == dateNoSeconds).ToList();
 
             if (meetings.Any())
             {

@@ -11,25 +11,19 @@ namespace MeetingApp.MenuCommands
     {
         internal static void Execute()
         {
-            PrintController.Execute("Введите название встречи:");
-            var name = ReadController.ReadLine();
+            var meeting = new Meeting();
 
-            PrintController.Execute("Введите дату и время начала встречи в формате dd.mm.yyyy hh:mm:");
-            var startDate = ReadController.ReadFullDate();
+            meeting.SetName();
+            meeting.SetStartDate();
+            meeting.SetEndDate();
+            meeting.SetAlertDate();
 
-            PrintController.Execute("Введите дату и время окончания встречи в формате dd.mm.yyyy hh:mm:");
-            var endDate = ReadController.ReadFullDate();
-
-            PrintController.Execute("Введите время в минутах, за сколько до начала встречи сделать уведомление:");
-            var alertTime = ReadController.ReadInt();
-
-            if (endDate < startDate)
+            if (meeting.StartDate > meeting.EndDate)
             {
                 PrintController.Execute("Встреча не может закончится до ее начала");
             }
 
-            var meeting = new Meeting(name, startDate, endDate, startDate.AddMinutes(-alertTime));
-            Storage.Storage.Meetings.Add(meeting);
+            Storage.Meetings.Add(meeting);
             PrintController.Execute("Встреча была добавлена!");
         }
     }

@@ -25,9 +25,11 @@ namespace MeetingApp.Services
 
         private static void CreateMenu()
         {
-            menuItems.Add(new MenuItem(1, "Создать встречу"));
-            menuItems.Add(new MenuItem(2, "Посмотреть все встречи"));
-            menuItems.Add(new MenuItem(3, "Посмотреть встречи на конкретный день"));
+            menuItems.Add(new MenuItem(1, "Посмотреть все встречи"));
+            menuItems.Add(new MenuItem(2, "Посмотреть встречи на конкретный день"));
+            menuItems.Add(new MenuItem(3, "Создать встречу"));
+            menuItems.Add(new MenuItem(4, "Изменить встречу"));
+            menuItems.Add(new MenuItem(5, "Удалить встречу"));
             menuItems.ForEach(x => Console.WriteLine(x.ToString()));
         }
 
