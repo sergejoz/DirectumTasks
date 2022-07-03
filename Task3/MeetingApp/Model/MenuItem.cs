@@ -39,6 +39,6 @@ namespace MeetingApp.Menu
             }
         }
 
-        public override string ToString() => ($"{Oid} {Name}");
+        public override string ToString() => ($"{Oid}. {Name}");
     }
 }

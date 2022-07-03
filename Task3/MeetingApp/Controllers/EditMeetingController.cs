@@ -18,20 +18,25 @@ namespace MeetingApp.Controller
         public static void Execute()
         {
             var meetings = Storage.Meetings;
-            ShowMeetingsController.PrintMeetings(meetings);
-            PrintController.Execute("Введите Id встречи, которую хотите изменить");
-            var meetId = ReadController.ReadInt();
-            var meeting = meetings.FirstOrDefault(x => x.Id == meetId);
-            if (meeting != null)
-                SelectField(meeting);
-            else PrintController.Execute("Встречи с таким ID не существует");
+            if (meetings.Any())
+            {
+                ShowMeetingsController.PrintMeetings(meetings);
+                PrintController.Execute("Введите Id встречи, которую хотите изменить");
+                var meetId = ReadController.ReadInt();
+                var meeting = meetings.FirstOrDefault(x => x.Id == meetId);
+                if (meeting != null)
+                    SelectField(meeting);
+                else PrintController.Execute("Встречи с таким ID не существует");
+            }
+            else ShowMeetingsController.PrintNoMeetings();
         }
 
         private static void SelectField(Meeting meeting)
         {
-            fields.ForEach(x=> PrintController.Execute(x));
+            fields.ForEach(x => PrintController.Execute(x));
             PrintController.Execute("Выберите номер редактируемого поля");
             var fieldId = ReadController.ReadInt();
+            bool success = true;
 
             switch (fieldId)
             {
@@ -39,35 +44,41 @@ namespace MeetingApp.Controller
                     meeting.SetName();
                     break;
                 case 2:
-                    {
-                        do
-                        {
-                            meeting.SetStartDate();
-                        }
-                        while (ValidateMeetingController.CheckMeeting(meeting) == true);
-                    }
+                    SetStartDate(meeting);
                     break;
                 case 3:
-                    {
-                        do
-                        {
-                            meeting.SetEndDate();
-                        }
-                        while (ValidateMeetingController.CheckMeeting(meeting) == true);
-                    }
+                    SetEndDate(meeting);
                     break;
                 case 4:
                     meeting.SetAlertDate();
                     break;
-                default: 
-                    PrintController.Execute("Поля с таким номером не существует!");
+                default:
+                    {
+                        PrintController.Execute("Поля с таким номером не существует!");
+                        success = false;
+                    }
                     break;
             }
 
-            PrintController.Execute("Поле изменено!");
-
+            if (success) PrintController.Execute("Поле изменено!");
         }
 
+        private static void SetEndDate(Meeting meeting)
+        {
+            do
+            {
+                meeting.SetEndDate();
+            }
+            while (ValidateMeetingController.CheckMeeting(meeting) == true);
+        }
 
+        private static void SetStartDate(Meeting meeting)
+        {
+            do
+            {
+                meeting.SetStartDate();
+            }
+            while (ValidateMeetingController.CheckMeeting(meeting) == true);
+        }
     }
 }

@@ -12,14 +12,8 @@ namespace MeetingApp.Controller
         internal static void Execute()
         {
             var meeting = new Meeting();
-
             meeting.SetName();
             meeting.SetDates();
-
-            if (meeting.StartDate > meeting.EndDate)
-            {
-                PrintController.Execute("Встреча не может закончится до ее начала");
-            }
 
             Storage.Meetings.Add(meeting);
             ClearController.Clear();

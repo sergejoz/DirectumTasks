@@ -2,10 +2,6 @@
 using MeetingApp.Entities;
 using MeetingApp.Validation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MeetingApp.Model
 {
@@ -21,15 +17,6 @@ namespace MeetingApp.Model
         public Meeting()
         {
             id = AutoIncrement.GenerateId();
-        }
-
-        public Meeting(string name, DateTime start, DateTime end, DateTime alertDate)
-        {
-            Name = name;
-            StartDate = start;
-            EndDate = end;
-            AlertDate = alertDate;
-
         }
 
         public override string ToString() => $"ID = {Id}, Название: {Name}, Начало: {StartDate:g}, Окончание: {EndDate:g}, Напоминание в: {AlertDate:g}";

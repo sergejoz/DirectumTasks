@@ -14,7 +14,7 @@ namespace MeetingApp.Controller
             if (meetings.Any())
                 PrintMeetings(meetings, true);
             else
-                PrintController.Execute("Список встреч пуст!");
+                PrintNoMeetings();
         }
 
         public static void ExecuteShowSpecifiedDay()
@@ -25,20 +25,25 @@ namespace MeetingApp.Controller
             if (meetings.Any())
                 PrintMeetings(meetings, true);
             else
-                PrintController.Execute("Список встреч пуст!");
+                PrintNoMeetings();
+        }
+
+        public static void PrintNoMeetings()
+        {
+            PrintController.Execute("Список встреч пуст!");
         }
 
         public static void PrintMeetings(List<Meeting> meetings, bool isSaving = false)
         {
             ClearController.Clear();
-            meetings.ForEach(x => Console.WriteLine(x.ToString()));
+            meetings.ForEach(x => PrintController.Execute(x.ToString()));
             if (isSaving) SaveToFileController.Execute(meetings);
         }
 
         public static void PrintAlertMeetings(List<Meeting> meetings)
         {
             PrintController.Execute("=== Напоминание о встречах: ===");
-            meetings.ForEach(x => Console.WriteLine(x.ToString()));
+            meetings.ForEach(x => PrintController.Execute(x.ToString()));
         }
     }
 }

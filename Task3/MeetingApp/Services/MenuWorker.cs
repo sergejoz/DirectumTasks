@@ -34,7 +34,9 @@ namespace MeetingApp.Services
 
         public static void PrintMenu()
         {
-            menuItems.ForEach(x => Console.WriteLine(x.ToString()));
+            PrintController.Execute("======= Меню =======");
+            menuItems.ForEach(x => PrintController.Execute(x.ToString()));
+            PrintController.Execute("====================");
         }
 
         private static void MenuItemExecute(int menuNumber)
