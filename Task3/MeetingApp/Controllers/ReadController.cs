@@ -12,7 +12,7 @@ namespace MeetingApp.Controllers
             while (true)
             {
                 var isParsed = int.TryParse(ReadLine(), out var commandNumber);
-                if (isParsed)
+                if (isParsed && commandNumber >= 0)
                 {
                     return commandNumber;
                 }

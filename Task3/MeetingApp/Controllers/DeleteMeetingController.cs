@@ -1,5 +1,4 @@
-﻿using MeetingApp.Controller;
-using System.Linq;
+﻿using System.Linq;
 
 namespace MeetingApp.Controllers
 {

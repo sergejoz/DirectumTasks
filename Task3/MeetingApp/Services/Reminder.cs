@@ -1,5 +1,4 @@
-﻿using MeetingApp.Controller;
-using MeetingApp.Controllers;
+﻿using MeetingApp.Controllers;
 using System;
 using System.ComponentModel;
 using System.Linq;

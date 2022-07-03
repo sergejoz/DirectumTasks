@@ -1,7 +1,6 @@
-﻿using MeetingApp.Controllers;
-using MeetingApp.Model;
+﻿using MeetingApp.Model;
 
-namespace MeetingApp.Controller
+namespace MeetingApp.Controllers
 {
     public class CreateNewMeetingController
     {

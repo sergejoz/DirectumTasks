@@ -1,10 +1,9 @@
-﻿using MeetingApp.Controllers;
-using MeetingApp.Model;
+﻿using MeetingApp.Model;
 using MeetingApp.Validation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MeetingApp.Controller
+namespace MeetingApp.Controllers
 {
     public class EditMeetingController
     {

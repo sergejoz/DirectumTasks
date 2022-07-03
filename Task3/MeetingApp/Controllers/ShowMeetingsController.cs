@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using MeetingApp.Controllers;
 using MeetingApp.Model;
 
-namespace MeetingApp.Controller
+namespace MeetingApp.Controllers
 {
     public class ShowMeetingsController
     {

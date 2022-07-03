@@ -6,7 +6,7 @@ namespace MeetingApp
     {
         static void Main(string[] args)
         {
-            Reminder reminder = new Reminder();
+            var reminder = new Reminder();
             reminder.Run();
             MenuWorker.Run();
         }
