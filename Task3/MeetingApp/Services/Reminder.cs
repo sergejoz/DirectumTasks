@@ -11,7 +11,7 @@ namespace MeetingApp.Services
     {
         private BackgroundWorker worker;
 
-        public Reminder()
+        public void Run()
         {
             worker = new BackgroundWorker()
             {
@@ -36,10 +36,7 @@ namespace MeetingApp.Services
             var meetings = Storage.Meetings.Where(x => x.AlertDate == dateNoSeconds).ToList();
 
             if (meetings.Any())
-            {
                 ShowMeetingsController.PrintAlertMeetings(meetings);
-                PrintController.Execute("");
-            }
         }
     }
 }

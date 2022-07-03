@@ -44,6 +44,7 @@ namespace MeetingApp.Controller
         {
             PrintController.Execute("=== Напоминание о встречах: ===");
             meetings.ForEach(x => PrintController.Execute(x.ToString()));
+            PrintController.Execute("");
         }
     }
 }
