@@ -29,7 +29,7 @@
 
 ## Третье задание: Разработка приложения
 
-**Решение**: [Папка с решением](https://github.com/sergejoz/DirectumTasks/tree/main/Task3/MeetingApp), План тестирования
+**Решение**: [Папка с решением](https://github.com/sergejoz/DirectumTasks/tree/main/Task3/MeetingApp), [План тестирования](https://github.com/sergejoz/DirectumTasks/blob/main/Task3/README.md)
 
 **Задание**:
 Разработать консольное приложение на C# .Net по описанию. 
