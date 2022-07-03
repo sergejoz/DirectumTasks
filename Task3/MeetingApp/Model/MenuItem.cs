@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MeetingApp.Controller;
 using MeetingApp.Controllers;
-using MeetingApp.MenuCommands;
-using MeetingApp.Model;
 
 namespace MeetingApp.Menu
 {

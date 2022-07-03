@@ -5,7 +5,7 @@ using MeetingApp.Controllers;
 using MeetingApp.Menu;
 using MeetingApp.Model;
 
-namespace MeetingApp.MenuCommands
+namespace MeetingApp.Controller
 {
     public class CreateNewMeetingController
     {
@@ -22,6 +22,7 @@ namespace MeetingApp.MenuCommands
             }
 
             Storage.Meetings.Add(meeting);
+            ClearController.Clear();
             PrintController.Execute("Встреча была добавлена!");
         }
     }

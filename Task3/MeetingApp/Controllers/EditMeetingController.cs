@@ -4,7 +4,7 @@ using MeetingApp.Validation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MeetingApp.MenuCommands
+namespace MeetingApp.Controller
 {
     public class EditMeetingController
     {
@@ -18,6 +18,7 @@ namespace MeetingApp.MenuCommands
         public static void Execute()
         {
             var meetings = Storage.Meetings;
+            ShowMeetingsController.PrintMeetings(meetings);
             PrintController.Execute("Введите Id встречи, которую хотите изменить");
             var meetId = ReadController.ReadInt();
             var meeting = meetings.FirstOrDefault(x => x.Id == meetId);

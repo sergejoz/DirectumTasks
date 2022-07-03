@@ -1,11 +1,8 @@
-﻿using MeetingApp.Controllers;
-using MeetingApp.MenuCommands;
+﻿using MeetingApp.Controller;
+using MeetingApp.Controllers;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace MeetingApp.Services
@@ -40,8 +37,7 @@ namespace MeetingApp.Services
 
             if (meetings.Any())
             {
-                PrintController.Execute("=== Напоминания о встречах: ===");
-                ShowMeetingsController.PrintMeetings(meetings, true);
+                ShowMeetingsController.PrintAlertMeetings(meetings);
                 PrintController.Execute("");
             }
         }
