@@ -19,7 +19,6 @@ namespace MeetingApp.Services
             worker = new BackgroundWorker()
             {
                 WorkerSupportsCancellation = true,
-                WorkerReportsProgress = true
             };
             worker.DoWork += worker_DoWork;
 

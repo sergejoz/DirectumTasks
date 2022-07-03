@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.DateTime;
 
 namespace MeetingApp.Controllers
 {
@@ -17,15 +15,26 @@ namespace MeetingApp.Controllers
 
             if (answer == "y")
             {
-                using (TextWriter tw = new StreamWriter("Meetings.txt"))
+                using (var fileStream = File.Open(GetDirectory(), FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
-                    foreach (var s in meetings)
-                        tw.WriteLine(s.ToString());
+                    using (var log = new StreamWriter(fileStream))
+                    {
+                        foreach (var s in meetings)
+                            log.WriteLine(s.ToString());
+                    }
                 }
-
-                PrintController.Execute("Файл успешно сохранен!");
+                PrintController.Execute("Файл сохранен!");
             }
+        }
 
+        private static string GetDirectory()
+        {
+            var logPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Meetings\\Meetings" + Today.ToString("yyyy-MM-dd") + "." + "txt";
+            var logFileInfo = new FileInfo(logPath);
+            var logDirInfo = new DirectoryInfo(logFileInfo.DirectoryName);
+            if (!logDirInfo.Exists) logDirInfo.Create();
+
+            return logPath;
         }
     }
 }

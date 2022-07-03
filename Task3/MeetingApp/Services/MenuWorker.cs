@@ -15,7 +15,7 @@ namespace MeetingApp.Services
         public static void Run()
         {
             CreateMenu();
-
+            PrintMenu();
             while (true)
             {
                 var commandNumber = ReadController.ReadInt();
@@ -30,9 +30,12 @@ namespace MeetingApp.Services
             menuItems.Add(new MenuItem(3, "Создать встречу"));
             menuItems.Add(new MenuItem(4, "Изменить встречу"));
             menuItems.Add(new MenuItem(5, "Удалить встречу"));
-            menuItems.ForEach(x => Console.WriteLine(x.ToString()));
         }
 
+        public static void PrintMenu()
+        {
+            menuItems.ForEach(x => Console.WriteLine(x.ToString()));
+        }
 
         private static void MenuItemExecute(int menuNumber)
         {

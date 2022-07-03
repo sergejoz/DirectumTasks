@@ -1,7 +1,6 @@
 ﻿using MeetingApp.Controllers;
-using MeetingApp.Menu;
 using MeetingApp.Model;
-using System;
+using MeetingApp.Validation;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +21,7 @@ namespace MeetingApp.MenuCommands
             PrintController.Execute("Введите Id встречи, которую хотите изменить");
             var meetId = ReadController.ReadInt();
             var meeting = meetings.FirstOrDefault(x => x.Id == meetId);
-            if (meetings != null)
+            if (meeting != null)
                 SelectField(meeting);
             else PrintController.Execute("Встречи с таким ID не существует");
         }
@@ -39,10 +38,22 @@ namespace MeetingApp.MenuCommands
                     meeting.SetName();
                     break;
                 case 2:
-                    meeting.SetStartDate();
+                    {
+                        do
+                        {
+                            meeting.SetStartDate();
+                        }
+                        while (ValidateMeetingController.CheckMeeting(meeting) == true);
+                    }
                     break;
                 case 3:
-                    meeting.SetEndDate();
+                    {
+                        do
+                        {
+                            meeting.SetEndDate();
+                        }
+                        while (ValidateMeetingController.CheckMeeting(meeting) == true);
+                    }
                     break;
                 case 4:
                     meeting.SetAlertDate();

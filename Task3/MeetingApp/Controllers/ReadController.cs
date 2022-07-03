@@ -31,6 +31,7 @@ namespace MeetingApp.Controllers
         {
             while (true)
             {
+                PrintController.Execute("(введите дату и время в формате dd.mm.yyyy hh:mm)");
                 var input = ReadLine();
                 var isParsed = DateTime.TryParseExact(input, "dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result);
 
@@ -55,6 +56,7 @@ namespace MeetingApp.Controllers
         {
             while (true)
             {
+                PrintController.Execute("Введите число в формате dd.mm.yyyy");
                 var input = ReadLine();
                 var isParsed = DateTime.TryParseExact(input, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result);
 

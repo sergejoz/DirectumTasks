@@ -14,9 +14,7 @@ namespace MeetingApp.MenuCommands
             var meeting = new Meeting();
 
             meeting.SetName();
-            meeting.SetStartDate();
-            meeting.SetEndDate();
-            meeting.SetAlertDate();
+            meeting.SetDates();
 
             if (meeting.StartDate > meeting.EndDate)
             {

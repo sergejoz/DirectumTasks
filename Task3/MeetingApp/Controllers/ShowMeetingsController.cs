@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using MeetingApp.Controllers;
-using MeetingApp.Menu;
 using MeetingApp.Model;
 
 namespace MeetingApp.MenuCommands
 {
     public class ShowMeetingsController
     {
-        internal static void ExecuteShowAll()
+        public static void ExecuteShowAll()
         {
             var meetings = Storage.Meetings;
             if (meetings.Any())
@@ -18,9 +17,8 @@ namespace MeetingApp.MenuCommands
                 PrintController.Execute("Список встреч пуст!");
         }
 
-        internal static void ExecuteShowSpecifiedDay()
+        public static void ExecuteShowSpecifiedDay()
         {
-            PrintController.Execute("Введите число в формате dd.mm.yyyy");
             var date = ReadController.ReadShortDate();
             var meetings = Storage.Meetings.Where(x => x.StartDate.Date == date).ToList();
 
@@ -32,6 +30,7 @@ namespace MeetingApp.MenuCommands
 
         public static void PrintMeetings(List<Meeting> meetings, bool alert = false)
         {
+            ClearController.Clear();
             meetings.ForEach(x => Console.WriteLine(x.ToString()));
             if (!alert)
                 SaveToFileController.Execute(meetings);

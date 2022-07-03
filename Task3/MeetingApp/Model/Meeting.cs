@@ -1,5 +1,6 @@
 ﻿using MeetingApp.Controllers;
 using MeetingApp.Entities;
+using MeetingApp.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,23 +34,35 @@ namespace MeetingApp.Model
 
         public override string ToString() => $"ID = {Id}, Название: {Name}, Начало: {StartDate:g}, Окончание: {EndDate:g}, Напоминание в: {AlertDate:g}";
 
+        public void SetDates()
+        {
+            do
+            {
+                SetStartDate();
+                SetEndDate();
+                SetAlertDate();
+            }
+            while (ValidateMeetingController.CheckMeeting(this) == true);
+        }
+
+
         public void SetName()
         {
-            PrintController.Execute("Введите название встречи:");
+            PrintController.Execute("Введите Название встречи:");
             var input = ReadController.ReadLine();
             Name = input;
         }
 
         public void SetStartDate()
         {
-            PrintController.Execute("Введите дату и время начала встречи в формате dd.mm.yyyy hh:mm:");
+            PrintController.Execute("Дата Начала:");
             var startDate = ReadController.ReadFullDate();
             StartDate = startDate;
         }
 
         public void SetEndDate()
         {
-            PrintController.Execute("Введите дату и время окончания встречи в формате dd.mm.yyyy hh:mm:");
+            PrintController.Execute("Дата Окончания:");
             var endDate = ReadController.ReadFullDate();
             EndDate = endDate;
         }

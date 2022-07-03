@@ -8,7 +8,7 @@ namespace MeetingApp.Entities
 {
     public class AutoIncrement
     {
-        private static int id = -1;
+        private static int id = 0;
         public static int GenerateId()
         {
             return id++;
