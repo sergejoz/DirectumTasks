@@ -44,10 +44,6 @@ namespace MeetingApp.Services
                 ShowMeetingsController.PrintMeetings(meetings, true);
                 PrintController.Execute("");
             }
-            else
-            {
-                PrintController.Execute("На эту минуту нет встреч!");
-            }
         }
     }
 }
