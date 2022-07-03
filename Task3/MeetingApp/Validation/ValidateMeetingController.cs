@@ -6,10 +6,7 @@ namespace MeetingApp.Validation
 {
     public class ValidateMeetingController
     {
-        public static bool CheckMeeting(Meeting meeting)
-        {
-            return CheckOverlap(meeting) || CheckStartAndFinish(meeting);
-        }
+        public static bool CheckMeeting(Meeting meeting) => CheckOverlap(meeting) || CheckStartAndFinish(meeting);
 
         private static bool CheckOverlap(Meeting meeting)
         {

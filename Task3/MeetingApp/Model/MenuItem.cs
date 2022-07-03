@@ -1,7 +1,7 @@
 ﻿using MeetingApp.Controller;
 using MeetingApp.Controllers;
 
-namespace MeetingApp.Menu
+namespace MeetingApp.Model
 {
     public class MenuItem
     {
